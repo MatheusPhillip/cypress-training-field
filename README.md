@@ -12,11 +12,7 @@ npm -v
 > Access the main folder on the terminal  <br />
 > On the terminal, digit the command:  <br />
 ```
-npm init
-```
-> OR
-```
-npm init -y
+npm install node modules
 ```
 > This will install the Node.JS and its node modules to the project  <br />
 
@@ -25,7 +21,7 @@ npm init -y
 ```
 npm install cypress@3.6.0
 ```
-The cypress version used in this project is the 3.6.0, if you want to use the most updated version just take out the @3.6.0 of the previous command
+The cypress version used in this project is the 3.8.3, if you want to use the most updated version just take out the @3.6.0 of the previous command
 ```
 npm install cypress
 ```
