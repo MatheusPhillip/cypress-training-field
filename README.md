@@ -20,7 +20,7 @@ npm init -y
 ```
 > This will install the Node.JS and its node modules to the project  <br />
 
-## Initializing Cypress for the project
+## Initializing Cypress
 > On the terminal, digit the command:  <br />
 ```
 npm install cypress@3.6.0
