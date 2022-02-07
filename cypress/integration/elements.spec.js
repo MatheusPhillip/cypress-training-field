@@ -93,6 +93,8 @@ describe('Work with basic elements',  ()=>{
     it.only('comboMultiple', () => {
         cy.get('[data-testid=dataEsportes]')
             .select(['natacao', 'Corrida', 'nada'])
+
+        //TODO validate combo multiple options
     })
 
 })
