@@ -55,7 +55,7 @@ describe('Work with basic elements',  ()=>{
     })
 
 
-    it('radioButton', ()=> {
+    it.only('radioButton', ()=> {
         cy.get('#formSexoFem')
             .click()
             .should('be.checked');
@@ -90,7 +90,7 @@ describe('Work with basic elements',  ()=>{
         //TODO validate options in the comboBox
     })
 
-    it.only('comboMultiple', () => {
+    it('comboMultiple', () => {
         cy.get('[data-testid=dataEsportes]')
             .select(['natacao', 'Corrida', 'nada'])
 
