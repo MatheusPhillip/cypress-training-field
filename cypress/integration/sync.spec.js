@@ -55,7 +55,7 @@ describe('Esperas...', ()=>{
 
     })
 
-    it.only('Uso do find, DOM elements list', ()=>{
+    it('Uso do find, DOM elements list', ()=>{
         
         cy.get('#buttonListDOM').click()
         
@@ -76,7 +76,38 @@ describe('Esperas...', ()=>{
             .should('contain', 'Item 1')
         cy.get('#lista li span')
             .should('contain', 'Item 2')
+    })
 
+    it.only('Uso do timeout and Wait', ()=>{
 
+        // Cypress default timeout is 4s
+        // This button shows up after 3s
+        //cy.get('#buttonDelay').click()
+        //cy.get('#novoCampo').should('exist')
+
+        // Changing timeout
+        //cy.get('#buttonDelay').click()
+        // Setting timeout for one exlusive element
+        //cy.get('#novoCampo',{timeout:1000}).should('exist')
+
+        // To change the default timeout for every case open cypress.json
+        // and set the property "DefaultCommandTimeout" and set the timeout 
+        /*
+        {
+            "DefaultCommandTimeout":1000
+        }
+        */
+
+        // Using WAIT
+        cy.get('#buttonListDOM').click()
+        //cy.wait(5000) // It's better using timeout for that element
+        cy.get('#lista li span',{timeout: 30000})
+            .should('have.length', 2)
+        
+        // Getting each length per time
+        // cy.get('#lista li span')
+        //     .should('have.length', 1)
+        // cy.get('#lista li span',)
+        //     .should('have.length', 2)
     })
 })
