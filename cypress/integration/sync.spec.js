@@ -17,7 +17,7 @@ describe('Esperas...', ()=>{
         cy.get('#novoCampo').type('funciona');
     })
 
-    it.only('Deve fazer retrys', ()=>{
+    it('Deve fazer retrys', ()=>{
 
         cy.get('#buttonDelay').click();
         
@@ -38,5 +38,45 @@ describe('Esperas...', ()=>{
 
     it('Uso do find', ()=>{
         cy.get('#buttonList').click()
+        cy.get('#lista li')
+            .find('span')
+            .should('contain', 'Item 1')
+        // It does not work because when the find locates the span it only has the Item 1
+        //cy.get('#lista li')
+        //    .find('span')
+        //    .should('contain', 'Item 2')
+
+        // Solution
+        cy.get('#lista li span')
+            .should('contain', 'Item 1')
+            .and('contain', 'Item 2')
+
+                
+
+    })
+
+    it.only('Uso do find, DOM elements list', ()=>{
+        
+        cy.get('#buttonListDOM').click()
+        
+        // It gives an error on the Item 2, because the Item 1 is removed from the list,
+        // but the find method looks for the entire span box
+        /*
+        cy.get('#lista li')
+            .find('span')
+            .should('contain', 'Item 1')
+        cy.get('#lista li')
+            .find('span')
+            .should('contain', 'Item 2')
+        */
+
+        // Solution
+        cy.get('#lista li')
+            .find('span')
+            .should('contain', 'Item 1')
+        cy.get('#lista li span')
+            .should('contain', 'Item 2')
+
+
     })
 })
