@@ -55,7 +55,7 @@ describe('Work with basic elements',  ()=>{
     })
 
 
-    it.only('radioButton', ()=> {
+    it('radioButton', ()=> {
         cy.get('#formSexoFem')
             .click()
             .should('be.checked');

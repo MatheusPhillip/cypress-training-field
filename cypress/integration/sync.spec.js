@@ -78,7 +78,7 @@ describe('Esperas...', ()=>{
             .should('contain', 'Item 2')
     })
 
-    it.only('Uso do timeout and Wait', ()=>{
+    it('Uso do timeout and Wait', ()=>{
 
         // Cypress default timeout is 4s
         // This button shows up after 3s
@@ -109,5 +109,12 @@ describe('Esperas...', ()=>{
         //     .should('have.length', 1)
         // cy.get('#lista li span',)
         //     .should('have.length', 2)
+    })
+    it.only('Click retry', ()=>{
+        // Not all commands have retry
+        // clicks and text strings for example
+        cy.get('#buttonCount')
+            .click()
+            .should('have.value', '11')
     })
 })
