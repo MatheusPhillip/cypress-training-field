@@ -110,11 +110,36 @@ describe('Esperas...', ()=>{
         // cy.get('#lista li span',)
         //     .should('have.length', 2)
     })
-    it.only('Click retry', ()=>{
+    it('Click retry', ()=>{
         // Not all commands have retry
         // clicks and text strings for example
         cy.get('#buttonCount')
             .click()
             .should('have.value', '11')
+        // To get the '111' value use two .click() functions
+    })
+
+
+    it.only('Should vs Then', ()=>{
+        
+        // It gives an error because the return of should is the parameter element
+        cy.get('#buttonListDOM').should($element =>{
+            // .should('have.length', 1)
+            // console.log($element)
+            expect($element).to.have.length(1)
+            return 2
+        }).and('eq', '2')
+        .and('not.have.id', 'buttonListDOM')
+
+        /*
+        ****** It works
+        cy.get('#buttonListDOM').then($element =>{
+            // .should('have.length', 1)
+            // console.log($element)
+            expect($element).to.have.length(1)
+            return 2
+        }).and('eq', '2')
+        .and('not.have.id', 'buttonListDOM')
+        */
     })
 })
