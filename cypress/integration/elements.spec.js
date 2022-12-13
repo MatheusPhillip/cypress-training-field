@@ -36,9 +36,7 @@ describe('Work with basic elements',  ()=>{
         cy.get('#formNome').type('Cypress Test')
         cy.get('#formNome').should('have.value', 'Cypress Test')
 
-        cy.get('#elementosForm\\:sugestoes')
-            .type('textarea')
-            .should('have.value', 'textarea');
+        
 
         cy.get('#tabelaUsuarios > :nth-child(2) > :nth-child(1) > :nth-child(6) > input')
             .type('???');
