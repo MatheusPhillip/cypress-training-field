@@ -30,4 +30,24 @@ describe('Work with alerts',  ()=>{
         })
         
     })
+
+    it('Cofirm alert', () =>{
+        cy.on('window:confirm', msg =>{
+            expect(msg).to.be.equal('Confirm Simples')
+        })
+        cy.on('window:alert', msg =>{
+            expect(msg).to.be.equal('Confirmado')
+        })
+        cy.get('#confirm').click()
+    })
+    it.only('Cofirm alert - Deny', () =>{
+        cy.on('window:confirm', msg =>{
+            expect(msg).to.be.equal('Confirm Simples')
+            return false
+        })
+        cy.on('window:alert', msg =>{
+            expect(msg).to.be.equal('Negado')
+        })
+        cy.get('#confirm').click()
+    })
 })
